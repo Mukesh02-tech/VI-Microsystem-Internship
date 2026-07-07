@@ -35,5 +35,3 @@ The projects were developed using **Raspberry Pi Pico (RP2040)** and the **8051 
 - Embedded C Programming
 - MicroPython Programming
 - Hardware Interfacing and Debugging
-
-## Repository Structure
