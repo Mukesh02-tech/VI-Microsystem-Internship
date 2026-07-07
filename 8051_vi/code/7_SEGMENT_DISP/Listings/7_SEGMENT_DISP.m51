@@ -1,0 +1,103 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    06/05/2025  15:33:38  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+E:\ARM KEIL\C51\BIN\BL51.EXE .\Objects\MAIN.obj TO .\Objects\7_SEGMENT_DISP PRINT (.\Listings\7_SEGMENT_DISP.m51) RAMSIZ
+>> E (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\MAIN.obj (MAIN)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\7_SEGMENT_DISP (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000AH     UNIT         ?DT?MAIN
+            IDATA   0012H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0026H     UNIT         ?PR?_DELAY?MAIN
+            CODE    08B2H     001AH     UNIT         ?PR?MAIN?MAIN
+            CODE    08CCH     000DH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\7_SEGMENT_DISP (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?_DELAY?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\7_SEGMENT_DISP (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/05/2025  15:33:38  PAGE 2
+
+
+  D:00A0H         PUBLIC        P2
+  C:088CH         PUBLIC        _delay
+  B:0090H.1       PUBLIC        q1
+  D:0008H         PUBLIC        seg_pattern
+  B:0090H.0       PUBLIC        q5
+  C:08B2H         PUBLIC        main
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        k
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:088CH         LINE#         5
+  C:088CH         LINE#         6
+  C:088CH         LINE#         8
+  C:089CH         LINE#         9
+  C:08B1H         LINE#         10
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0001H         SYMBOL        i
+  -------         ENDDO         
+  C:08B2H         LINE#         26
+  C:08B2H         LINE#         28
+  C:08B2H         LINE#         29
+  C:08B4H         LINE#         30
+  C:08B6H         LINE#         31
+  C:08B8H         LINE#         32
+  C:08BFH         LINE#         33
+  C:08C6H         LINE#         34
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 004CH BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=19.0 xdata=0 code=220
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

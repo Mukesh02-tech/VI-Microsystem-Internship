@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\timer_interupt" 
+PRINT(".\Listings\timer_interupt.m51") RAMSIZE(256) 

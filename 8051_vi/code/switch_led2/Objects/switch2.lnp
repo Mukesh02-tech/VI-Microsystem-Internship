@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\switch2" 
+PRINT(".\Listings\switch2.m51") RAMSIZE(256) 

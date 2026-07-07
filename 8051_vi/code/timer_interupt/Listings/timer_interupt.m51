@@ -1,0 +1,111 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    06/05/2025  14:17:20  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+E:\ARM KEIL\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\timer_interupt PRINT (.\Listings\timer_interupt.m51) RAMSIZ
+>> E (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\timer_interupt (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     000FH     UNIT         ?PR?TIMER0_ISR?MAIN
+            CODE    080FH     000CH     UNIT         ?PR?TIMER_INIT?MAIN
+            CODE    081BH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0827H     0009H     UNIT         ?PR?MAIN?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\timer_interupt (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?TIMER_INIT?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\timer_interupt (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:0800H         PUBLIC        Timer0_ISR
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/05/2025  14:17:20  PAGE 2
+
+
+  B:00A8H.7       PUBLIC        EA
+  C:080FH         PUBLIC        Timer_init
+  C:0827H         PUBLIC        main
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  B:0080H.4       PUBLIC        test1
+  B:0080H.5       PUBLIC        test2
+  B:0080H.6       PUBLIC        test3
+  B:0080H.7       PUBLIC        test4
+  -------         PROC          TIMER_INIT
+  C:080FH         LINE#         6
+  C:080FH         LINE#         7
+  C:080FH         LINE#         8
+  C:0812H         LINE#         9
+  C:0815H         LINE#         10
+  C:0818H         LINE#         11
+  C:081AH         LINE#         12
+  -------         ENDPROC       TIMER_INIT
+  -------         PROC          TIMER0_ISR
+  C:0800H         LINE#         14
+  C:0800H         LINE#         16
+  C:0802H         LINE#         17
+  C:0804H         LINE#         18
+  C:0806H         LINE#         19
+  C:0808H         LINE#         20
+  C:080BH         LINE#         21
+  C:080EH         LINE#         22
+  -------         ENDPROC       TIMER0_ISR
+  -------         PROC          MAIN
+  C:0827H         LINE#         24
+  C:0827H         LINE#         25
+  C:0827H         LINE#         26
+  C:0829H         LINE#         27
+  C:082BH         LINE#         28
+  C:082EH         LINE#         29
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0027H BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=54
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

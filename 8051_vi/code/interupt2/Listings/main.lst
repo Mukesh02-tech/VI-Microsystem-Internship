@@ -1,0 +1,75 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              06/04/2025 15:03:52 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: E:\arm keil\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\mai
+                    -n.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>    /* Include x51 header file */
+   2          sbit LED1 = P0^5;
+   3          sbit LED2=P0^6;
+   4          sbit LED3 = P0^4;
+   5          sbit LED4=P0^7;
+   6          void Ext_int_Init()       
+   7          {
+   8   1        EA = 1;   /* Enable global interrupts */
+   9   1        ES = 1;   /* Enable serial interrupt */     
+  10   1      }
+  11          
+  12          void UART_Init()
+  13          {
+  14   1        TMOD = 0x20;  /* Timer1 Mode 2: 8-bit auto-reload */
+  15   1        TH1 = 0xFD; /* 9600 baud rate at 11.0592 MHz */
+  16   1        SCON = 0x50;  /* Serial mode 1, REN enabled */
+  17   1        TR1 = 1;  /* Start Timer1 */
+  18   1      }
+  19          
+  20          void Serial_ISR() interrupt 4
+  21          {
+  22   1        char received_char = SBUF;  /* Read received byte */
+  23   1      
+  24   1        if (received_char == '3') {
+  25   2          LED1=1;
+  26   2          LED2=1;
+  27   2          LED3=1;
+  28   2          LED4=1;
+  29   2        
+  30   2        } else if (received_char == '4') {
+  31   2          LED1=0;
+  32   2          LED2=0;
+  33   2          LED3=0;
+  34   2          LED4=0;
+  35   2        }
+  36   1      
+  37   1        RI = 0; // Clear receive interrupt flag
+  38   1      }
+  39          
+  40          void main()
+  41          {
+  42   1        LED1=0;
+  43   1        LED3=0;
+  44   1        LED4=0;
+  45   1        LED2=0;
+  46   1        Ext_int_Init();   /* Enable serial interrupts */
+  47   1        UART_Init();    /* Initialize UART */
+  48   1        while(1);   /* Infinite loop, wait for UART input */
+  49   1      }\
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     73    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.60.7.0   MAIN                                                              06/04/2025 15:03:52 PAGE 2   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

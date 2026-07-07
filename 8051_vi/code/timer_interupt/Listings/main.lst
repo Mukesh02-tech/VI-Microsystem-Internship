@@ -1,0 +1,54 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              06/05/2025 14:17:20 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: E:\arm keil\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\mai
+                    -n.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include<reg51.h>   /* Include x51 header file */
+   2          sbit test1 = P0^4;    /* set test pin0 of port1 */
+   3          sbit test2= P0^5;   
+   4          sbit test3= P0^6;   
+   5          sbit test4= P0^7;   
+   6          void Timer_init()
+   7          {
+   8   1        TMOD = 0x01;    /* Timer0 mode1 */
+   9   1        TH0 = 0x3C;   /* 50ms timer value */
+  10   1        TL0 = 0x00;      
+  11   1        TR0 = 1;            /* Start timer0 */
+  12   1      }
+  13          
+  14          void Timer0_ISR() interrupt 1 /* Timer0 interrupt service routine (ISR) */
+  15          {
+  16   1        test1 = ~test1;     /* Toggle port pin */
+  17   1        test2=~test2;
+  18   1        test3=~test3;
+  19   1        test4=~test4;
+  20   1        TH0 = 0x4C;       /* 50ms timer value */
+  21   1        TL0 = 0x00;      
+  22   1      }
+  23          
+  24          int main(void)
+  25          {
+  26   1        EA  = 1;          /* Enable global interrupt */
+  27   1        ET0 = 1;          /* Enable timer0 interrupt */
+  28   1        Timer_init();
+  29   1          while(1);
+  30   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     36    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

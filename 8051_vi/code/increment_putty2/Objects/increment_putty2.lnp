@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\increment_putty2" 
+PRINT(".\Listings\increment_putty2.m51") RAMSIZE(256) 

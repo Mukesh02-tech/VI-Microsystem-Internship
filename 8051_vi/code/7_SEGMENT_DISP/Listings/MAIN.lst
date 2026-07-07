@@ -1,0 +1,60 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              06/05/2025 15:33:38 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\MAIN.obj
+COMPILER INVOKED BY: E:\arm keil\C51\BIN\C51.EXE MAIN.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\MAI
+                    -N.lst) TABS(2) OBJECT(.\Objects\MAIN.obj)
+
+line level    source
+
+   1          #include <reg51.h>    // Header for 8051
+   2          sbit q1 = P1^1; 
+   3          sbit q5 = P1^0; 
+   4          // Delay function (approximate)
+   5          void delay(k)  /* Delay for msec. (here Xtal freq. is 11.0592 MHz) */
+   6          {
+   7   1        int i,j;
+   8   1        for (i=0;i<k;i++)
+   9   1          for (j=0;j<112;j++);
+  10   1      }
+  11          
+  12          
+  13          unsigned char seg_pattern[10] = {
+  14              0x3F, // 0 ? 0011 1111
+  15              0x06, // 1 ? 0000 0110
+  16              0x5B, // 2 ? 0101 1011
+  17              0x4F, // 3 ? 0100 1111
+  18              0x66, // 4 ? 0110 0110
+  19              0x6D, // 5 ? 0110 1101
+  20              0x7D, // 6 ? 0111 1101
+  21              0x07, // 7 ? 0000 0111
+  22              0x7F, // 8 ? 0111 1111
+  23              0x6F  // 9 ? 0110 1111
+  24          };
+  25          
+  26          void main(void) {
+  27   1          unsigned char i;
+  28   1          while(1) {
+  29   2            q1 = 1;
+  30   2            q5 = 0;
+  31   2              for(i = 0; i < 10; i++) {
+  32   3                  P2 = seg_pattern[i];   // Output pattern to 7-segment
+  33   3                  delay(1000);        // 1-second delay
+  34   3              }
+  35   2          }
+  36   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     64    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

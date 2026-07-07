@@ -1,0 +1,216 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    06/04/2025  11:29:49  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+E:\ARM KEIL\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\increment_putty PRINT (.\Listings\increment_putty.m51) RAMS
+>> IZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (PRINTF)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C?CSTPTR)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C?CCASE)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (PUTCHAR)
+
+
+LINK MAP OF MODULE:  .\Objects\increment_putty (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0016H     UNIT         ?DT?MAIN
+                    001EH     0002H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+                    0021H.1   0000H.7                *** GAP ***
+            DATA    0022H     0014H     UNIT         _DATA_GROUP_
+            IDATA   0036H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     035CH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    0B5CH     008EH     UNIT         ?C?LIB_CODE
+            CODE    0BEAH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0C76H     004DH     UNIT         ?PR?MAIN?MAIN
+            CODE    0CC3H     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    0CEAH     0026H     UNIT         ?PR?_DELAY?MAIN
+            CODE    0D10H     0024H     UNIT         ?PR?_STRING?MAIN
+            CODE    0D34H     000CH     UNIT         ?PR?UART_INIT?MAIN
+            CODE    0D40H     000AH     UNIT         ?CO?MAIN
+            CODE    0D4AH     0008H     UNIT         ?PR?_TRANSMIT_DATA?MAIN
+            CODE    0D52H     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\increment_putty (MAIN)
+
+
+SEGMENT                            BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT           START    LENGTH     START    LENGTH
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/04/2025  11:29:49  PAGE 2
+
+
+-------------------------------------------------------------------
+?C_C51STARTUP                   -----    -----      -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                   -----    -----      -----    -----
+  +--> ?PR?UART_INIT?MAIN
+  +--> ?PR?_DELAY?MAIN
+  +--> ?CO?MAIN
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?_STRING?MAIN
+
+?PR?PRINTF?PRINTF               0020H.0  0001H.1    0022H    0014H
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+?PR?_STRING?MAIN                -----    -----      0022H    0003H
+  +--> ?PR?_TRANSMIT_DATA?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\increment_putty (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:0CEAH         PUBLIC        _delay
+  B:0098H.1       PUBLIC        TI
+  C:0C76H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  C:0D34H         PUBLIC        UART_Init
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0008H         PUBLIC        cnt
+  B:0090H.3       PUBLIC        swit
+  D:008DH         PUBLIC        TH1
+  C:0D4AH         PUBLIC        _Transmit_data
+  B:0088H.6       PUBLIC        TR1
+  C:0D10H         PUBLIC        _String
+  D:000AH         PUBLIC        buffer
+  -------         PROC          UART_INIT
+  C:0D34H         LINE#         8
+  C:0D34H         LINE#         9
+  C:0D34H         LINE#         10
+  C:0D37H         LINE#         11
+  C:0D3AH         LINE#         12
+  C:0D3DH         LINE#         13
+  C:0D3FH         LINE#         14
+  -------         ENDPROC       UART_INIT
+  -------         PROC          _TRANSMIT_DATA
+  D:0007H         SYMBOL        tx_data
+  C:0D4AH         LINE#         16
+  C:0D4AH         LINE#         17
+  C:0D4AH         LINE#         18
+  C:0D4CH         LINE#         19
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/04/2025  11:29:49  PAGE 3
+
+
+  C:0D4FH         LINE#         20
+  C:0D51H         LINE#         21
+  -------         ENDPROC       _TRANSMIT_DATA
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        k
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0CEAH         LINE#         22
+  C:0CEAH         LINE#         23
+  C:0CEAH         LINE#         25
+  C:0CFAH         LINE#         26
+  C:0D0FH         LINE#         27
+  -------         ENDPROC       _DELAY
+  -------         PROC          _STRING
+  D:0022H         SYMBOL        str
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0D10H         LINE#         28
+  C:0D16H         LINE#         29
+  C:0D16H         LINE#         31
+  C:0D29H         LINE#         32
+  C:0D29H         LINE#         33
+  C:0D2CH         LINE#         34
+  C:0D33H         LINE#         35
+  -------         ENDPROC       _STRING
+  -------         PROC          MAIN
+  C:0C76H         LINE#         37
+  C:0C76H         LINE#         38
+  C:0C76H         LINE#         39
+  C:0C79H         LINE#         42
+  C:0C79H         LINE#         43
+  C:0C79H         LINE#         44
+  C:0C7CH         LINE#         45
+  C:0C7CH         LINE#         46
+  C:0C83H         LINE#         47
+  C:0C86H         LINE#         48
+  C:0C86H         LINE#         49
+  C:0C8EH         LINE#         50
+  C:0CA5H         LINE#         51
+  C:0CAEH         LINE#         52
+  C:0CB7H         LINE#         53
+  C:0CBAH         LINE#         54
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0B5CH         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        PRINTF
+  D:0022H         PUBLIC        ?_PRINTF517?BYTE
+  D:0022H         PUBLIC        ?_PRINTF?BYTE
+  D:0022H         PUBLIC        ?_SPRINTF517?BYTE
+  D:0022H         PUBLIC        ?_SPRINTF?BYTE
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/04/2025  11:29:49  PAGE 4
+
+
+  C:0862H         PUBLIC        _PRINTF
+  C:0862H         PUBLIC        _PRINTF517
+  C:085CH         PUBLIC        _SPRINTF
+  C:085CH         PUBLIC        _SPRINTF517
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?CLDPTR
+  C:0B89H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:0BA2H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:0BB4H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:0BC4H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:0CC3H         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00B9H BYTE ( 9%) *
+******************************************************************************
+
+Program Size: data=52.1 xdata=0 code=1370
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

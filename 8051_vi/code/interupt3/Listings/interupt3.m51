@@ -1,0 +1,175 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    06/04/2025  15:44:48  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+E:\ARM KEIL\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\interupt3 PRINT (.\Listings\interupt3.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\interupt3 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0015H     UNIT         ?DT?MAIN
+            DATA    001DH     0006H     UNIT         _DATA_GROUP_
+            IDATA   0023H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0020H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+                    0026H     07DAH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0067H     UNIT         ?PR?SERIAL_ISR?MAIN
+            CODE    08F3H     002CH     UNIT         ?CO?MAIN
+            CODE    091FH     0025H     UNIT         ?PR?_UART_PRINTSTRING?MAIN
+            CODE    0944H     0019H     UNIT         ?C?LIB_CODE
+            CODE    095DH     0010H     UNIT         ?PR?UART_INIT?MAIN
+            CODE    096DH     000EH     UNIT         ?PR?MAIN?MAIN
+            CODE    097BH     0008H     UNIT         ?PR?_UART_TXCHAR?MAIN
+            CODE    0983H     0004H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\interupt3 (MAIN)
+
+
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?PR?SERIAL_ISR?MAIN                -----    -----
+  +--> ?CO?MAIN
+  +--> ?PR?_UART_PRINTSTRING?MAIN
+  +--> ?PR?_UART_TXCHAR?MAIN
+
+?PR?_UART_PRINTSTRING?MAIN         0020H    0003H
+  +--> ?PR?_UART_TXCHAR?MAIN
+
+*** NEW ROOT ***************************************************
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/04/2025  15:44:48  PAGE 2
+
+
+
+?C_C51STARTUP                      -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                      -----    -----
+  +--> ?PR?UART_INIT?MAIN
+  +--> ?CO?MAIN
+  +--> ?PR?_UART_PRINTSTRING?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\interupt3 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  B:00A8H.4       PUBLIC        ES
+  D:0008H         PUBLIC        index
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  C:096DH         PUBLIC        main
+  C:091FH         PUBLIC        _UART_PrintString
+  D:0099H         PUBLIC        SBUF
+  C:088CH         PUBLIC        Serial_ISR
+  C:095DH         PUBLIC        UART_Init
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  B:0088H.6       PUBLIC        TR1
+  C:097BH         PUBLIC        _UART_TxChar
+  D:0009H         PUBLIC        buffer
+  -------         PROC          UART_INIT
+  C:095DH         LINE#         8
+  C:095DH         LINE#         9
+  C:095DH         LINE#         10
+  C:0960H         LINE#         11
+  C:0963H         LINE#         12
+  C:0966H         LINE#         13
+  C:0968H         LINE#         14
+  C:096AH         LINE#         15
+  C:096CH         LINE#         16
+  -------         ENDPROC       UART_INIT
+  -------         PROC          _UART_TXCHAR
+  D:0007H         SYMBOL        ch
+  C:097BH         LINE#         18
+  C:097BH         LINE#         19
+  C:097BH         LINE#         20
+  C:097DH         LINE#         21
+  C:0980H         LINE#         22
+  C:0982H         LINE#         23
+  -------         ENDPROC       _UART_TXCHAR
+  -------         PROC          _UART_PRINTSTRING
+  D:0020H         SYMBOL        str
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/04/2025  15:44:48  PAGE 3
+
+
+  C:091FH         LINE#         25
+  C:0925H         LINE#         26
+  C:0925H         LINE#         27
+  C:0930H         LINE#         28
+  C:0943H         LINE#         29
+  -------         ENDPROC       _UART_PRINTSTRING
+  -------         PROC          SERIAL_ISR
+  -------         DO            
+  D:0006H         SYMBOL        ch
+  -------         ENDDO         
+  C:088CH         LINE#         31
+  C:08A3H         LINE#         33
+  C:08A5H         LINE#         34
+  C:08A7H         LINE#         36
+  C:08AAH         LINE#         37
+  C:08AAH         LINE#         38
+  C:08B1H         LINE#         39
+  C:08BAH         LINE#         40
+  C:08C3H         LINE#         41
+  C:08C8H         LINE#         42
+  C:08CBH         LINE#         43
+  C:08CDH         LINE#         44
+  C:08D4H         LINE#         45
+  C:08D4H         LINE#         46
+  C:08DEH         LINE#         47
+  C:08DEH         LINE#         48
+  -------         ENDPROC       SERIAL_ISR
+  -------         PROC          MAIN
+  C:096DH         LINE#         50
+  C:096DH         LINE#         51
+  C:096DH         LINE#         52
+  C:0970H         LINE#         53
+  C:0979H         LINE#         54
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?CLDPTR
+  C:0944H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_UART_PRINTSTRING?MAIN
+    CALLER1: ?PR?SERIAL_ISR?MAIN
+    CALLER2: ?C_C51STARTUP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00E4H BYTE (11%) *
+******************************************************************************
+
+Program Size: data=36.0 xdata=0 code=397
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,3 @@
+".\Objects\mai.obj" 
+TO ".\Objects\ir_led" 
+PRINT(".\Listings\ir_led.m51") RAMSIZE(256) 

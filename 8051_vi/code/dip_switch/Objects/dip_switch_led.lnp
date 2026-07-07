@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\dip_switch_led" 
+PRINT(".\Listings\dip_switch_led.m51") RAMSIZE(256) 

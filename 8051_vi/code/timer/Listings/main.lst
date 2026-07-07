@@ -1,0 +1,45 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              06/05/2025 11:09:19 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: E:\arm keil\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\mai
+                    -n.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>      /* Include x51 header file */
+   2          sbit test = P0^6;     /* set test pin 0 of port1 */ 
+   3          
+   4          void timer_delay()      /* Timer0 delay function */
+   5          {
+   6   1        TH0 = 0xE3;     /* Load 8-bit in TH0 (here Timer0 used) */
+   7   1        TL0 = 0x14;     /* Load 5-bit in TL0 */
+   8   1        TR0 = 1;      /* Start timer0 */
+   9   1        while(TF0 == 0);    /* Wait until timer0 flag set */
+  10   1        TR0 = 0;      /* Stop timer0 */
+  11   1        TF0 = 0;      /* Clear timer0 flag */
+  12   1      }
+  13          void main()
+  14          {
+  15   1        TMOD = 0x00;      /* Timer0/1 mode0 (13-bit timer mode) */
+  16   1        while(1)
+  17   1        {
+  18   2          test = ~test;   /* Toggle test pin */
+  19   2          timer_delay();    /* Call timer0 delay */
+  20   2        }
+  21   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     26    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

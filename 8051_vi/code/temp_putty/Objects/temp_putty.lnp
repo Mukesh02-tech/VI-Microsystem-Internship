@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\temp_putty" 
+PRINT(".\Listings\temp_putty.m51") RAMSIZE(256) 

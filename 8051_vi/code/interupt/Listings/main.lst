@@ -1,0 +1,65 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              06/04/2025 14:53:16 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: E:\arm keil\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\mai
+                    -n.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>    /* Include x51 header file */
+   2          sbit LED1 = P1^5;
+   3          sbit LED2=P1^6;
+   4          void Ext_int_Init()       
+   5          {
+   6   1        EA = 1;   /* Enable global interrupts */
+   7   1        ES = 1;   /* Enable serial interrupt */     
+   8   1      }
+   9          
+  10          void UART_Init()
+  11          {
+  12   1        TMOD = 0x20;  /* Timer1 Mode 2: 8-bit auto-reload */
+  13   1        TH1 = 0xFD; /* 9600 baud rate at 11.0592 MHz */
+  14   1        SCON = 0x50;  /* Serial mode 1, REN enabled */
+  15   1        TR1 = 1;  /* Start Timer1 */
+  16   1      }
+  17          
+  18          void Serial_ISR() interrupt 4
+  19          {
+  20   1        char received_char = SBUF;  /* Read received byte */
+  21   1      
+  22   1        if (received_char == '3') {
+  23   2          LED1=1;
+  24   2          LED2=1;
+  25   2        
+  26   2        } else if (received_char == '4') {
+  27   2          LED1=0;
+  28   2          LED2=0;
+  29   2        }
+  30   1      
+  31   1        RI = 0; // Clear receive interrupt flag
+  32   1      }
+  33          
+  34          void main()
+  35          {
+  36   1        LED1=0;
+  37   1        LED2=0;
+  38   1        Ext_int_Init();   /* Enable serial interrupts */
+  39   1        UART_Init();    /* Initialize UART */
+  40   1        while(1);   /* Infinite loop, wait for UART input */
+  41   1      }\
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     61    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

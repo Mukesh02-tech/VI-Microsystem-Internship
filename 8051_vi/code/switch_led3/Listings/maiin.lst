@@ -1,0 +1,70 @@
+C51 COMPILER V9.60.7.0   MAIIN                                                             06/03/2025 15:49:26 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIIN
+OBJECT MODULE PLACED IN .\Objects\maiin.obj
+COMPILER INVOKED BY: E:\arm keil\C51\BIN\C51.EXE maiin.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\ma
+                    -iin.lst) TABS(2) OBJECT(.\Objects\maiin.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          
+   3          sbit LED1 = P1^5;       
+   4          sbit LED2 = P1^6;    
+   5          
+   6          sbit SWITCH1 = P1^3;  
+   7          sbit SWITCH2 = P1^4;    
+   8          int flag =0;
+   9          void delay(k)  /* Delay for msec. (here Xtal freq. is 11.0592 MHz) */
+  10          {
+  11   1        int i,j;
+  12   1        for (i=0;i<k;i++)
+  13   1          for (j=0;j<112;j++);
+  14   1      }
+  15          void main()
+  16          {
+  17   1          LED1 = 0;    // Initially OFF
+  18   1          LED2 = 0;
+  19   1      
+  20   1          while (1)
+  21   1          {
+  22   2           
+  23   2              if (SWITCH1 == 0)    
+  24   2              {
+  25   3      
+  26   3                 flag= !flag;   
+  27   3                  
+  28   3               while(1)
+  29   3                  {
+  30   4                        
+  31   4                    if (SWITCH1 == 1)
+  32   4                      {
+  33   5                       delay(20) ;
+  34   5                       break;
+  35   5      
+  36   5                      } 
+  37   4                  }
+  38   3                
+  39   3              }
+  40   2               LED1 = flag?1:0;
+  41   2      
+  42   2      
+  43   2          }
+  44   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     86    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+C51 COMPILER V9.60.7.0   MAIIN                                                             06/03/2025 15:49:26 PAGE 2   
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

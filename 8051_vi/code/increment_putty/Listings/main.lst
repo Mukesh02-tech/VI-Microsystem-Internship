@@ -1,0 +1,84 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              06/04/2025 11:29:49 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: E:\arm keil\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\mai
+                    -n.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>    /* Include x51 header file */
+   2          #include "stdio.h"
+   3          sbit swit=P1^3;
+   4          char buffer[20];  
+   5          int cnt=1;
+   6          
+   7          
+   8          void UART_Init()
+   9          {
+  10   1        TMOD = 0x20;    /* Timer 1, 8-bit auto reload mode */
+  11   1        TH1 = 0xFD;   /* Load value for 9600 baud rate */
+  12   1        SCON = 0x50;    /* Mode 1, reception enable */
+  13   1        TR1 = 1;    /* Start timer 1 */
+  14   1      }
+  15          
+  16          void Transmit_data(char tx_data)
+  17          {
+  18   1        SBUF = tx_data;   /* Load char in SBUF register */
+  19   1        while (TI==0);    /* Wait until stop bit transmit */
+  20   1        TI = 0;     /* Clear TI flag */
+  21   1      }
+  22          void delay(k)  /* Delay for msec. (here Xtal freq. is 11.0592 MHz) */
+  23          {
+  24   1        int i,j;
+  25   1        for (i=0;i<k;i++)
+  26   1          for (j=0;j<112;j++);
+  27   1      }
+  28          void String(char *str)
+  29          {
+  30   1        int i;
+  31   1        for(i=0;str[i]!=0;i++)
+  32   1        {
+  33   2          Transmit_data(str[i]);  
+  34   2        }
+  35   1      } 
+  36          
+  37          void main()
+  38          {
+  39   1        UART_Init();    
+  40   1        
+  41   1        
+  42   1        while(1)
+  43   1        {
+  44   2          if(swit==0)
+  45   2          {
+  46   3            delay(20);
+  47   3              if(swit==0)
+  48   3              {
+  49   4                cnt=cnt+1;
+  50   4                sprintf(buffer, "Int: %d", cnt);
+  51   4                String(buffer);       
+  52   4                String("\n");
+  53   4                while(swit==0)
+  54   4                  delay(20);
+C51 COMPILER V9.60.7.0   MAIN                                                              06/04/2025 11:29:49 PAGE 2   
+
+  55   4              }
+  56   3            }
+  57   2        }
+  58   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    171    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     22       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

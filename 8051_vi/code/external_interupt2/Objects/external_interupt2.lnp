@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\external_interupt2" 
+PRINT(".\Listings\external_interupt2.m51") RAMSIZE(256) 

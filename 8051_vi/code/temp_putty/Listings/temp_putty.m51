@@ -1,0 +1,225 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    06/04/2025  10:51:50  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+E:\ARM KEIL\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\temp_putty PRINT (.\Listings\temp_putty.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  E:\ARM KEIL\C51\LIB\C51FPS.LIB (PRINTF)
+  E:\ARM KEIL\C51\LIB\C51FPS.LIB (?C?FPROUND)
+  E:\ARM KEIL\C51\LIB\C51FPS.LIB (?C?FPCONVERT)
+  E:\ARM KEIL\C51\LIB\C51FPS.LIB (?C?FPADD)
+  E:\ARM KEIL\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  E:\ARM KEIL\C51\LIB\C51FPS.LIB (?C?FPDIV)
+  E:\ARM KEIL\C51\LIB\C51FPS.LIB (?C?FTNPWR)
+  E:\ARM KEIL\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C?CSTPTR)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C?CCASE)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (PUTCHAR)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\temp_putty (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+                    0008H     0018H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+                    0021H.1   0000H.7                *** GAP ***
+            DATA    0022H     001CH     UNIT         _DATA_GROUP_
+            DATA    003EH     001AH     UNIT         ?DT?MAIN
+            IDATA   0058H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0518H     UNIT         ?C?LIB_CODE
+            CODE    0D18H     046FH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    1187H     008CH     UNIT         ?C_C51STARTUP
+            CODE    1213H     005CH     UNIT         ?PR?MAIN?MAIN
+            CODE    126FH     002AH     UNIT         ?PR?_STRING?MAIN
+            CODE    1299H     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    12C0H     001DH     UNIT         ?CO?MAIN
+            CODE    12DDH     000CH     UNIT         ?PR?UART_INIT?MAIN
+            CODE    12E9H     000BH     UNIT         ?C_INITSEG
+            CODE    12F4H     0008H     UNIT         ?PR?_TRANSMIT_DATA?MAIN
+
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/04/2025  10:51:50  PAGE 2
+
+
+OVERLAY MAP OF MODULE:   .\Objects\temp_putty (MAIN)
+
+
+SEGMENT                            BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT           START    LENGTH     START    LENGTH
+-------------------------------------------------------------------
+?C_C51STARTUP                   -----    -----      -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                   -----    -----      -----    -----
+  +--> ?PR?UART_INIT?MAIN
+  +--> ?CO?MAIN
+  +--> ?PR?_STRING?MAIN
+  +--> ?PR?PRINTF?PRINTF
+
+?PR?_STRING?MAIN                -----    -----      0022H    0003H
+  +--> ?CO?MAIN
+  +--> ?PR?_TRANSMIT_DATA?MAIN
+
+?PR?PRINTF?PRINTF               0020H.0  0001H.1    0022H    001CH
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\temp_putty (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0098H.1       PUBLIC        TI
+  D:003EH         PUBLIC        value
+  C:1213H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  C:12DDH         PUBLIC        UART_Init
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0040H         PUBLIC        temp
+  D:008DH         PUBLIC        TH1
+  C:12F4H         PUBLIC        _Transmit_data
+  B:0088H.6       PUBLIC        TR1
+  C:1275H         PUBLIC        _String
+  D:0044H         PUBLIC        buffer
+  -------         PROC          UART_INIT
+  C:12DDH         LINE#         8
+  C:12DDH         LINE#         9
+  C:12DDH         LINE#         10
+  C:12E0H         LINE#         11
+  C:12E3H         LINE#         12
+  C:12E6H         LINE#         13
+  C:12E8H         LINE#         14
+  -------         ENDPROC       UART_INIT
+  -------         PROC          _TRANSMIT_DATA
+  D:0007H         SYMBOL        tx_data
+  C:12F4H         LINE#         16
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/04/2025  10:51:50  PAGE 3
+
+
+  C:12F4H         LINE#         17
+  C:12F4H         LINE#         18
+  C:12F6H         LINE#         19
+  C:12F9H         LINE#         20
+  C:12FBH         LINE#         21
+  -------         ENDPROC       _TRANSMIT_DATA
+  -------         PROC          L?0013
+  -------         ENDPROC       L?0013
+  -------         PROC          _STRING
+  D:0022H         SYMBOL        str
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:1275H         LINE#         23
+  C:127BH         LINE#         24
+  C:127BH         LINE#         26
+  C:128EH         LINE#         27
+  C:128EH         LINE#         28
+  C:1291H         LINE#         29
+  C:1298H         LINE#         30
+  -------         ENDPROC       _STRING
+  -------         PROC          MAIN
+  C:1213H         LINE#         32
+  C:1213H         LINE#         33
+  C:1213H         LINE#         34
+  C:1216H         LINE#         35
+  C:121FH         LINE#         36
+  C:1222H         LINE#         37
+  C:123AH         LINE#         38
+  C:1243H         LINE#         39
+  C:1246H         LINE#         40
+  C:1264H         LINE#         41
+  C:126DH         LINE#         43
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        PRINTF
+  D:0022H         PUBLIC        ?_PRINTF?BYTE
+  D:0022H         PUBLIC        ?_SPRINTF?BYTE
+  C:0D7AH         PUBLIC        _PRINTF
+  C:0D74H         PUBLIC        _SPRINTF
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?FPROUND
+  C:0800H         PUBLIC        ?C?FPROUND
+  -------         ENDMOD        ?C?FPROUND
+
+  -------         MODULE        ?C?FPCONVERT
+  C:082FH         PUBLIC        ?C?FPCONVERT
+  -------         ENDMOD        ?C?FPCONVERT
+
+  -------         MODULE        ?C?FPADD
+  C:0939H         PUBLIC        ?C?FPADD
+  C:0935H         PUBLIC        ?C?FPSUB
+  -------         ENDMOD        ?C?FPADD
+
+  -------         MODULE        ?C?FPMUL
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/04/2025  10:51:50  PAGE 4
+
+
+  C:0A2AH         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+
+  -------         MODULE        ?C?FPDIV
+  C:0B33H         PUBLIC        ?C?FPDIV
+  -------         ENDMOD        ?C?FPDIV
+
+  -------         MODULE        ?C?FTNPWR
+  C:0C00H         PUBLIC        ?C?FTNPWR
+  -------         ENDMOD        ?C?FTNPWR
+
+  -------         MODULE        ?C?CLDPTR
+  C:0C8AH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0CA3H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:0CD0H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:0CE2H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:0CF2H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:1299H         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00C1H BYTE ( 9%) *
+******************************************************************************
+
+Program Size: data=64.1 xdata=0 code=2815
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

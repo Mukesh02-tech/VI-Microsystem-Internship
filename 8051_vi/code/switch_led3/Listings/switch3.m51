@@ -1,0 +1,111 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    06/04/2025  10:04:40  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+E:\ARM KEIL\C51\BIN\BL51.EXE .\Objects\maiin.obj TO .\Objects\switch3 PRINT (.\Listings\switch3.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\maiin.obj (MAIIN)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\switch3 (MAIIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?MAIIN
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0030H     UNIT         ?PR?MAIN?MAIIN
+            CODE    08BCH     0026H     UNIT         ?PR?_DELAY?MAIIN
+            CODE    08E2H     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\switch3 (MAIIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIIN
+  +--> ?PR?_DELAY?MAIIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\switch3 (MAIIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  B:0090H.3       PUBLIC        SWITCH1
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/04/2025  10:04:40  PAGE 2
+
+
+  B:0090H.5       PUBLIC        LED1
+  B:0090H.6       PUBLIC        LED2
+  C:08BCH         PUBLIC        _delay
+  D:0008H         PUBLIC        flag
+  C:088CH         PUBLIC        main
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        k
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:08BCH         LINE#         9
+  C:08BCH         LINE#         10
+  C:08BCH         LINE#         12
+  C:08CCH         LINE#         13
+  C:08E1H         LINE#         14
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:088CH         LINE#         15
+  C:088CH         LINE#         16
+  C:088CH         LINE#         17
+  C:088EH         LINE#         18
+  C:0890H         LINE#         20
+  C:0890H         LINE#         21
+  C:0890H         LINE#         23
+  C:0893H         LINE#         24
+  C:0893H         LINE#         26
+  C:08A4H         LINE#         28
+  C:08A4H         LINE#         29
+  C:08A4H         LINE#         31
+  C:08A7H         LINE#         32
+  C:08A7H         LINE#         33
+  C:08AEH         LINE#         34
+  C:08AEH         LINE#         36
+  C:08AEH         LINE#         37
+  C:08AEH         LINE#         39
+  C:08AEH         LINE#         40
+  C:08BAH         LINE#         43
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 005AH BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=234
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

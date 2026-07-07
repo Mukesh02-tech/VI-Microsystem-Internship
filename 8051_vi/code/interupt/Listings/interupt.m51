@@ -1,0 +1,130 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    06/04/2025  14:53:17  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+E:\ARM KEIL\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\interupt PRINT (.\Listings\interupt.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  E:\ARM KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\interupt (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0020H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+                    0026H     07DAH                  *** GAP ***
+            CODE    0800H     0020H     UNIT         ?PR?SERIAL_ISR?MAIN
+            CODE    0820H     000CH     UNIT         ?PR?UART_INIT?MAIN
+            CODE    082CH     000CH     UNIT         ?PR?MAIN?MAIN
+            CODE    0838H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0844H     0005H     UNIT         ?PR?EXT_INT_INIT?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\interupt (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?EXT_INT_INIT?MAIN
+  +--> ?PR?UART_INIT?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\interupt (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/04/2025  14:53:17  PAGE 2
+
+
+  B:00A8H.7       PUBLIC        EA
+  B:0090H.5       PUBLIC        LED1
+  B:0090H.6       PUBLIC        LED2
+  B:00A8H.4       PUBLIC        ES
+  B:0098H.0       PUBLIC        RI
+  C:082CH         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  C:0800H         PUBLIC        Serial_ISR
+  C:0820H         PUBLIC        UART_Init
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  C:0844H         PUBLIC        Ext_int_Init
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          EXT_INT_INIT
+  C:0844H         LINE#         4
+  C:0844H         LINE#         5
+  C:0844H         LINE#         6
+  C:0846H         LINE#         7
+  C:0848H         LINE#         8
+  -------         ENDPROC       EXT_INT_INIT
+  -------         PROC          UART_INIT
+  C:0820H         LINE#         10
+  C:0820H         LINE#         11
+  C:0820H         LINE#         12
+  C:0823H         LINE#         13
+  C:0826H         LINE#         14
+  C:0829H         LINE#         15
+  C:082BH         LINE#         16
+  -------         ENDPROC       UART_INIT
+  -------         PROC          SERIAL_ISR
+  -------         DO            
+  D:0007H         SYMBOL        received_char
+  -------         ENDDO         
+  C:0800H         LINE#         18
+  C:0807H         LINE#         20
+  C:0809H         LINE#         22
+  C:080CH         LINE#         23
+  C:080EH         LINE#         24
+  C:0810H         LINE#         26
+  C:0815H         LINE#         27
+  C:0817H         LINE#         28
+  C:0819H         LINE#         29
+  C:0819H         LINE#         31
+  C:081BH         LINE#         32
+  -------         ENDPROC       SERIAL_ISR
+  -------         PROC          MAIN
+  C:082CH         LINE#         34
+  C:082CH         LINE#         35
+  C:082CH         LINE#         36
+  C:082EH         LINE#         37
+  C:0830H         LINE#         38
+  C:0833H         LINE#         39
+  C:0836H         LINE#         40
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/04/2025  14:53:17  PAGE 3
+
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0040H BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=79
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
